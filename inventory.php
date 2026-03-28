@@ -33,18 +33,18 @@ $result = mysqli_query($conn, "SELECT * FROM product");
     <!--add stock into inventory-->
     <td>
         <?php
-         // 🟢 get stock safely
+         // get stock safely
              $stock = $row['stock'] ?? 0;
 
-          // 🔴 LOW STOCK (<=10)
+          //  LOW STOCK (<=10)
             if($stock <= 10){
               echo "<span style='color:red; font-weight:bold;'>Low ($stock)</span>";
 }
-            // 🟡 MEDIUM STOCK (11–30)
+            //  MEDIUM STOCK (11–30)
               elseif($stock <= 30){
                echo "<span style='color:orange;'>$stock</span>";
 }
-             // 🟢 GOOD STOCK (>30)
+             //  GOOD STOCK (>30)
             else{
                  echo "<span style='color:green;'>$stock</span>";
 }

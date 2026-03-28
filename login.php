@@ -46,10 +46,10 @@ header("Location: dashboard.php");
     </head>
     
     <body>
-        <!-- ERROR MESSAGE HERE (TOP CENTER) -->
+        <!-- ERROR MESSAGE HERE -->
            <?php if(!empty($error)): ?>
                <div class="alert-box">
-                   ❌ <?php echo $error; ?>
+                    <?php echo $error; ?>
              </div>
                     <?php endif; ?>
 

@@ -14,7 +14,7 @@ $sql = "SELECT product_name, unit_price, stock
 
 $result = mysqli_query($conn, $sql);
 
-// 🔥 STORE OUTPUT
+//  STORE OUTPUT
 $suggestions = "";
 $table = "";
 
@@ -30,10 +30,10 @@ while($row = mysqli_fetch_assoc($result)){
         $status = "<span style='color:green;'>In Stock</span>";
     }
 
-    // 🔥 suggestions list
+    //  suggestions list
     $suggestions .= "<div class='item'>".$row['product_name']."</div>";
 
-    // 🔥 table rows
+    //  table rows
     $table .= "<tr>
         <td>".$row['product_name']."</td>
         <td>Rs. ".number_format($row['unit_price'],2)."</td>
@@ -42,7 +42,7 @@ while($row = mysqli_fetch_assoc($result)){
     </tr>";
 }
 
-// 🔥 RETURN JSON
+//  RETURN JSON
 echo json_encode([
     "suggestions" => $suggestions,
     "table" => $table

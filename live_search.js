@@ -1,4 +1,4 @@
-// 🔥 CLEAN LIVE SEARCH (FINAL VERSION)
+//  live version
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let query = this.value.trim();
 
-        // 🔥 clear if empty
+        //  clear if empty
         if (query.length === 0) {
             suggestions.innerHTML = "";
             location.reload(); // reload full table
@@ -22,22 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let xhr = new XMLHttpRequest();
 
-        // 🔥 MUST MATCH PHP PARAM
+        //  MUST MATCH PHP PARAM
         xhr.open("GET", "live_search.php?q=" + encodeURIComponent(query), true);
 
         xhr.onload = function () {
             if (this.status === 200) {
 
-                // 🔥 SPLIT RESPONSE (IMPORTANT)
+                //  SPLIT RESPONSE (IMPORTANT)
                 let data = JSON.parse(this.responseText);
 
-                // ✅ suggestions (names only)
+                //  suggestions (names only)
                 suggestions.innerHTML = data.suggestions;
 
-                // ✅ table update
+                //  table update
                 tableBody.innerHTML = data.table;
 
-                // 🔥 CLICK TO SELECT
+                //  CLICK TO SELECT
                 document.querySelectorAll(".item").forEach(item => {
                     item.addEventListener("click", function () {
                         searchInput.value = this.innerText;
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.send();
     });
 
-    // 🔥 hide suggestions when clicking outside
+    //  hide suggestions when clicking outside
     document.addEventListener("click", function (e) {
         if (!e.target.closest("#searchInput")) {
             suggestions.innerHTML = "";
