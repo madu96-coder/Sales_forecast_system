@@ -1,0 +1,67 @@
+<?php
+include("config.php");
+
+// get products
+$result = mysqli_query($conn, "SELECT * FROM product");
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login-box">
+
+<h2>📦 Inventory</h2>
+
+<table border="1" width="100%" cellpadding="10">
+
+<tr>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Stock</th>
+</tr>
+
+<?php while($row = mysqli_fetch_assoc($result)){ ?>
+<tr>
+    <td><?= $row['product_name']; ?></td>
+    <td>Rs. <?= $row['unit_price']; ?></td>
+
+    <!--add stock into inventory-->
+    <td>
+        <?php
+         // 🟢 get stock safely
+             $stock = $row['stock'] ?? 0;
+
+          // 🔴 LOW STOCK (<=10)
+            if($stock <= 10){
+              echo "<span style='color:red; font-weight:bold;'>Low ($stock)</span>";
+}
+            // 🟡 MEDIUM STOCK (11–30)
+              elseif($stock <= 30){
+               echo "<span style='color:orange;'>$stock</span>";
+}
+             // 🟢 GOOD STOCK (>30)
+            else{
+                 echo "<span style='color:green;'>$stock</span>";
+}
+?>
+
+
+
+
+
+    </td>
+    
+</tr>
+<?php } ?>
+
+</table>
+
+</div>
+
+</body>
+</html>
