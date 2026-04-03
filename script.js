@@ -1,7 +1,7 @@
 
  document.addEventListener("DOMContentLoaded", function () {
 
-    // ===== SALES PAGE LOGIC =====
+    //  SALES PAGE LOGIC 
     const category = document.getElementById("category");
     const product = document.getElementById("product");
 
@@ -26,7 +26,7 @@
     }
 
 
-    // ===== FORECAST PAGE LOGIC =====
+    //  FORECAST PAGE LOGIC
     const canvas = document.getElementById("salesChart");
 
     if (canvas) {

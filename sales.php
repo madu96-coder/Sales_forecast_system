@@ -1,17 +1,8 @@
 <?php
-// include database connection
-include("config.php");
+include 'includes/auth.php';
+checkRole(['sales_manager', 'admin']);
 
-// start session
-session_start();
-
-// check if user is logged in
-if(!isset($_SESSION['user'])){
-    header("Location: login.php"); // redirect if not logged in
-    exit();
-}
-
-    if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
     $product_id = $_POST['product_id'];
     $quantity   = $_POST['quantity'];
@@ -49,11 +40,11 @@ if(!isset($_SESSION['user'])){
 
     } else {
 
-        // ❗ ONLY error place
+        //  ONLY error place
         echo "<pre>SQL ERROR:\n" . mysqli_error($conn) . "\n\nQUERY:\n" . $sql . "</pre>";
     }
-    
-    }
+
+}
 
 ?>
 

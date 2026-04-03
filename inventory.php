@@ -1,5 +1,10 @@
 <?php
-include("config.php");
+include 'includes/auth.php';//auth-control user roles
+
+include 'includes/config.php'; //db connect
+
+//only inventory manger + admin allowed
+checkRole(['inventory_manager', 'product_manager', 'admin']);
 
 // get products
 $result = mysqli_query($conn, "SELECT * FROM product");

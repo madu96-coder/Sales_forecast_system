@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+require_once __DIR__ . '/includes/config.php'; //use to define a file location
 
 
 // TOTAL SALES

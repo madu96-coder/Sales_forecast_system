@@ -1,14 +1,6 @@
 <?php
-include("config.php"); // connect to database
-
-
-session_start(); //start session
-
-//check if user is logged in
-if(!isset($_SESSION['user'] )){
-    header("Location: login.php"); //redirect if not logged in
-    exit();
-}
+include 'includes/auth.php';
+checkRole(['product_manager', 'admin']);
 
 //get all products from database
 $result = mysqli_query($conn,"SELECT * FROM product");
@@ -77,8 +69,8 @@ $result = mysqli_query($conn,"SELECT * FROM product");
 </table>
 <br>
 
-<!--back button-->
-<a href="dashboard.php">  Back to Dashboard</a>
+<!--back button — uses each user’s role dashboard (admin → admin, product manager → product manager) -->
+<a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">Back to dashboard</a>
 
 </div>
 </body>

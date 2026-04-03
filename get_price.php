@@ -1,5 +1,6 @@
 <?php
-include("config.php");
+include 'includes/auth.php';
+checkRole(['sales_manager', 'admin']); //only those two actors can access to system
 
 // get product id
 $product_id = $_GET['product_id'];

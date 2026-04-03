@@ -1,11 +1,6 @@
 <?php
-include "config.php";
-
-session_start();
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
-    exit();
-}
+include 'includes/auth.php';
+checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
 ?>
 
 <!DOCTYPE html>
@@ -19,28 +14,40 @@ if(!isset($_SESSION['user'])){
 
 <div class="login-box">
 
-    <h2>📊 Reports Dashboard</h2>
+    <h2>📊 Reports</h2>
 
-    <!-- 📦 INVENTORY REPORT -->
+    <?php if (in_array($_SESSION['role'], ['inventory_manager', 'admin'], true)): ?>
     <div style="margin:20px 0;">
         <a href="inventory_report.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
-                📦 Inventory Report
+                📦 Inventory report
             </div>
         </a>
     </div>
+    <?php endif; ?>
 
-    <!-- FUTURE REPORTS (PLACEHOLDER) -->
-    <div style="margin:20px 0; opacity:0.5;">
-        📈 Sales Report
+    <?php if (in_array($_SESSION['role'], ['sales_manager', 'admin'], true)): ?>
+    <div style="margin:20px 0;">
+        <a href="view_sales.php" style="text-decoration:none;">
+            <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
+                📈 Sales list
+            </div>
+        </a>
     </div>
+    <?php endif; ?>
 
-    <div style="margin:20px 0; opacity:0.5;">
-        🤖 Forecast Report 
+    <?php if (in_array($_SESSION['role'], ['product_manager', 'admin'], true)): ?>
+    <div style="margin:20px 0;">
+        <a href="forecast.php" style="text-decoration:none;">
+            <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
+                🤖 Forecast
+            </div>
+        </a>
     </div>
+    <?php endif; ?>
 
     <br>
-    <a href="dashboard.php">⬅ Back to Dashboard</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">⬅ Back to dashboard</a>
 
 </div>
 

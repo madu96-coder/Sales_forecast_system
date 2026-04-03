@@ -1,5 +1,6 @@
 <?php
-include("config.php");
+include 'includes/auth.php';
+checkRole(['sales_manager', 'admin']);
 
 // get all sales
 $result = mysqli_query($conn,"

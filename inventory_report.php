@@ -1,11 +1,7 @@
 <?php
-include "config.php"; // DB connection
+include 'includes/auth.php';
+checkRole(['inventory_manager', 'admin']);
 
-session_start();
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
-    exit();
-}
 // search feature
 $search = "";
 

@@ -1,8 +1,9 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', 1);//finding error optional
+ini_set('display_errors', 1);
 
-include("config.php");
+include 'includes/auth.php';
+checkRole(['product_manager', 'sales_manager', 'admin']);
 
 $month = []; //store months
 $total = []; //store sales values
@@ -16,7 +17,7 @@ GROUP BY month ORDER BY month ASC");
 $sales = [];
 $labels = [];
 
-//fetch data
+//fetch data - take data from one raw at one time
 while($row = mysqli_fetch_assoc($result)){
     $labels[] = $row['month'];
     $sales[] = $row['total_sales'];  

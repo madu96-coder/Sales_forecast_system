@@ -1,15 +1,6 @@
 <?php
-// connect database
-include("config.php");
-
-// start session
-session_start();
-
-// check login
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
-    exit();
-}
+include 'includes/auth.php';
+checkRole(['product_manager', 'admin']);
 
 // when form submitted
 if(isset($_POST['submit'])){
