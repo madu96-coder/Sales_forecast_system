@@ -1,6 +1,8 @@
 <?php
 include 'includes/auth.php';
-checkRole(['product_manager', 'admin']);
+include 'includes/config.php';
+
+checkRole(['inventory_manager', 'admin']);
 
 // when form submitted
 if(isset($_POST['submit'])){

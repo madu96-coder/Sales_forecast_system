@@ -19,7 +19,7 @@ checkRole(['product_manager', 'admin']);
 
 <div class="container menu">
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/products.php" class="card">📦 Products</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/add_product.php" class="card">➕ Add product</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/production_plan.php" class="card">🏭 production plan</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php" class="card">📈 Forecast</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/inventory.php" class="card">📦 Inventory view</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php" class="card">📋 Reports</a>

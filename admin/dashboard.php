@@ -49,6 +49,21 @@ include __DIR__ . '/../dashboard_stats.php';
         <canvas id="productChart"></canvas>
     </div>
 
+    <div class="card">
+        <a href="users.php">
+            <i class="fa fa-users"></i>
+            <p> 👥 Manage Users</p>
+        </a>
+
+    </div>
+
+    <div class="card">
+        <a href="system.php"></a>
+        <i class="fa fa-cogs"></i> <!--icon tag/put icon infront of topic-->
+        <p> ⚙️ Manage System</p>
+
+    </div>
+
 </div>
 
 </div>

@@ -23,8 +23,6 @@ $result = mysqli_query($conn,"SELECT * FROM product");
 <!--page title-->
 <h2>Products</h2>
 
-<!--add product button-->
-<a href="add_product.php"> Add New Product</a>
 <br><br>
 
 
