@@ -62,6 +62,8 @@ if(count($sales) >= 3){
     data-labels='<?= json_encode($labels); ?>'
     data-values='<?= json_encode($sales); ?>'>
  </canvas>
+ <br>
+ <a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">Back to dashboard</a>
 
 </div>
 <script src="script.js"></script>

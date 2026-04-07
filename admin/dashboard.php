@@ -24,17 +24,17 @@ include __DIR__ . '/../dashboard_stats.php';
 
 <div class="card">
     <h3>Total Sales</h3>
-    <p>Rs. <?php echo number_format($totalSales ?? 0, 2); ?></p>
+    <p>Rs. <?php echo number_format($totalSales ?? 0, 2); ?></p> <!-- take value from db if empty use 0/and number format= make it money-->
 </div>
 
 <div class="card">
     <h3>Top Product</h3>
-    <p><?php echo htmlspecialchars($bestProduct['product_name'] ?? 'N/A'); ?></p>
+    <p><?php echo htmlspecialchars($bestProduct['product_name'] ?? 'N/A'); ?></p> <!-- show product if missing show N/A-->
 </div>
 
 <div class="card">
     <h3>This Month</h3>
-    <p>Rs. <?php echo number_format($currentMonth['total'] ?? 0, 2); ?></p>
+    <p>Rs. <?php echo number_format($currentMonth['total'] ?? 0, 2); ?></p> <!-- if empty show 0-->
 </div>
 
 <div class="dashboard-graphs">
@@ -58,9 +58,10 @@ include __DIR__ . '/../dashboard_stats.php';
     </div>
 
     <div class="card">
-        <a href="system.php"></a>
+        <a href="../manage_category.php" style="text-decoration:none; color:inherit;">
         <i class="fa fa-cogs"></i> <!--icon tag/put icon infront of topic-->
         <p> ⚙️ Manage System</p>
+        </a>
 
     </div>
 

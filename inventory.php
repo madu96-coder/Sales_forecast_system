@@ -65,6 +65,8 @@ $result = mysqli_query($conn, "SELECT * FROM product");
 <?php } ?>
 
 </table>
+<br>
+<a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">Back to dashboard</a>
 
 </div>
 

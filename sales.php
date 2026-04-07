@@ -113,6 +113,8 @@ if (isset($_POST['submit'])) {
         <button type="submit" name="submit">Save Sale</button>
 
     </form>
+    <br>
+    <a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">Back to dashboard</a>
 
 </div>
 

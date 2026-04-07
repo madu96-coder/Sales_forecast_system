@@ -1,6 +1,6 @@
 <?php
 include 'includes/auth.php';
-checkRole(['product_manager', 'admin']);
+checkRole(['product_manager', 'admin','inventory_manager']);
 
 //get all products from database
 $result = mysqli_query($conn,"SELECT * FROM product");

@@ -34,41 +34,6 @@ $result = mysqli_query($conn, $sql);
 
     <h2>📦 Inventory Report</h2>
 
-    <form  method="GET" style="margin-bottom: 15px">
-        <input type="text" id="searchInput" name="search" placeholder="search product..."  value="<?= isset($_GET['search'] ) ? $_GET['search'] : ''?> "
-             style="padding:8px; width: 60%;">
-
-             <!-- CLEAN DROPDOWN -->
-    <div id="suggestions" style="
-        position:absolute;
-        top:45px;
-        left:0;
-        width:100%;
-        background:white;
-        border:1px solid #ccc;
-        border-top:none;
-        border-radius:0 0 5px 5px;
-        max-height:200px;
-        overflow-y:auto;
-        z-index:1000;
-    "></div>
-
-             <!--search button-->
-
-        <button type="submit">🔍 Search </button>
-
-        <!--reset button-->
-        <a href="inventory_report.php">
-            <button type="button">Reset</button>
-        </a>
-        <!-- suggestion box-->
-         <div id="suggestion" style="position:absolute; top=:40px; width:60%; background:white; border:1px solid #ccc; z-index:1000;">
-
-         </div>
-    </form>
-
-
-
     <table border="1" width="100%" cellpadding="10">
         <tr style="background:#007bff; color:white;">
             <th>Product</th>
@@ -120,7 +85,7 @@ $result = mysqli_query($conn, $sql);
     <a href="reports.php">⬅ Back to Reports</a>
 
 </div>
-<script src="live_search.js"></script>
+
 
 </body>
 </html>

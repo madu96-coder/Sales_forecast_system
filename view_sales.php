@@ -48,7 +48,10 @@ while($row = mysqli_fetch_assoc($result)){
 <?php } ?>
 
 </table>
+
 </div>
+<br>
+<a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">Back to dashboard</a>
 
 </body>
 </html>

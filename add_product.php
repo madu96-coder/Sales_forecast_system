@@ -11,9 +11,8 @@ if(isset($_POST['submit'])){
     $name = $_POST['product_name'];   // product name
     $price = $_POST['unit_price'];    // price
     $category = $_POST['category_id']; // category
+    $stock = $_POST['stock']; 
 
-    //get stock from form
-    $stock = $_POST['stock'];
 
   
     //  check if product already exists
@@ -26,7 +25,7 @@ if(isset($_POST['submit'])){
                  $newStock = $row['stock'] + $stock;
 
              $sql = "UPDATE product 
-                  SET stock = $newStock 
+                  SET stock = '$newStock' 
                     WHERE product_name = '$name'";
 
 }        else {
@@ -39,20 +38,12 @@ if(isset($_POST['submit'])){
                 //  execute query
                   if(mysqli_query($conn, $sql)){
                       header("Location: products.php");
+                      exit();
 }                 else {
                     echo "Error: " . mysqli_error($conn);
 }
 
 
-
- 
-
-    // execute query
-    if(mysqli_query($conn, $sql)){
-        header("Location: products.php"); // redirect after success
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
 }
   ?>
 

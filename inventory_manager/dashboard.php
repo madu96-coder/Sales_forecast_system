@@ -18,7 +18,7 @@ checkRole(['inventory_manager', 'admin']);
 <h2>Inventory — Welcome, <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?></h2>
 
 <div class="container menu">
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/add_stock.php" class="card">➕ Add product</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/add_stock.php" class="card">➕ Add Stock</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/inventory.php" class="card">📦 Stock levels</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/inventory_report.php" class="card">📋 Inventory report</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/logout.php" class="card logout-btn">🚪 Logout</a>
