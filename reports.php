@@ -30,7 +30,7 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
     <div style="margin:20px 0;">
         <a href="view_sales.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
-                📈 Sales list
+                📈 Sales report
             </div>
         </a>
     </div>
@@ -40,7 +40,7 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
     <div style="margin:20px 0;">
         <a href="forecast.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
-                🤖 Forecast
+                📋 Productoin plan report
             </div>
         </a>
     </div>

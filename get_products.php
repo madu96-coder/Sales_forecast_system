@@ -1,5 +1,5 @@
 <?php
-include 'includes/auth.php'; //stops unauthorized access, control user role
+include 'includes/auth.php';
 checkRole(['sales_manager', 'admin']);
 
 // get category id from ajax
@@ -10,7 +10,7 @@ $result = mysqli_query($conn,"SELECT * FROM product WHERE category_id='$category
 
 // loop products and send as option
 while($row = mysqli_fetch_assoc($result)){
-    echo "<option value='".$row['product_id']."'data-price='".$row['unit_price']."'>" //unit price auto show
-    .$row ['product_name']." </option>";
+    echo "<option value='".$row['product_id']."' data-price='".$row['unit_price']."'>"
+    .$row['product_name']."</option>";
 }
 ?>

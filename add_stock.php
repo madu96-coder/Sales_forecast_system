@@ -135,7 +135,7 @@ if(isset($_POST['submit'])){
     </form>
 
     <br>
-    <a href="inventory.php">← Back</a>
+    <a href="manage_inventory.php">← Back</a>
 
 </div>
 

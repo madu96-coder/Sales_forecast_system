@@ -1,16 +1,28 @@
 <?php
-include 'includes/auth.php';
-checkRole(['sales_manager', 'admin']); //only those two actors can access to system
+// ONLY database connection (no auth here)
+include 'includes/config.php';
 
-// get product id
-$product_id = $_GET['product_id'];
+// check if product_id is provided
+if(isset($_GET['product_id']) && !empty($_GET['product_id'])){
 
-// get price from database
-$sql = "SELECT unit_price FROM product WHERE product_id = '$product_id'";
-$result = mysqli_query($conn, $sql);
+    // convert to integer for safety
+    $product_id = (int) $_GET['product_id'];
 
-$row = mysqli_fetch_assoc($result);
+    // query database
+    $sql = "SELECT unit_price FROM product WHERE product_id = $product_id";
 
-// return price
-echo $row['unit_price'];
+    $result = mysqli_query($conn, $sql);
+
+    if($result && mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+
+        // return price
+        echo $row['unit_price'];
+    } else {
+        echo ""; // no product found
+    }
+
+} else {
+    echo ""; // no id provided
+}
 ?>

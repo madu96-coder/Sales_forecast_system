@@ -39,15 +39,6 @@ include __DIR__ . '/../dashboard_stats.php';
 
 <div class="dashboard-graphs">
 
-    <div class="graph-box">
-        <h3>📊 Monthly Sales</h3>
-        <canvas id="salesChart"></canvas>
-    </div>
-
-    <div class="graph-box">
-        <h3>📦 Top Products</h3>
-        <canvas id="productChart"></canvas>
-    </div>
 
     <div class="card">
         <a href="users.php">
@@ -67,22 +58,23 @@ include __DIR__ . '/../dashboard_stats.php';
 
 </div>
 
+
 </div>
 
 <div class="container menu">
 
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/products.php" class="card">📦 Products</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/production_plan.php" class="card">📦 Production plan</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/sales.php" class="card">💰 Sales</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php" class="card">📈 Forecast</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/view_sales.php" class="card">📊 View sales</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/inventory.php" class="card">📦 Inventory</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_inventory.php" class="card"> ➕Manage Inventory</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php" class="card">📋 Reports</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/logout.php" class="card logout-btn">🚪 Logout</a>
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="<?php echo htmlspecialchars(APP_BASE); ?>/dashboard.js"></script>
+
+
 
 </body>
 </html>

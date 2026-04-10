@@ -15,9 +15,17 @@ if (isset($_SESSION['role'])) {
 
 function checkRole($allowedRoles = [])
 {
-    if (!in_array($_SESSION['role'], $allowedRoles, true)) {
-        $path = role_dashboard_path($_SESSION['role']);
-        header('Location: ' . APP_BASE . '/' . $path . '?access_denied=1');
-        exit();
-    }
+
+   if (!in_array($_SESSION['role'], $allowedRoles, true)) {
+
+    // ✅ SET SESSION ERROR MESSAGE
+    $_SESSION['error'] = "You do not have access to that page.";
+
+    $path = role_dashboard_path($_SESSION['role']);
+
+    // ✅ REDIRECT WITHOUT GET PARAM
+    header('Location: ' . APP_BASE . '/' . $path);
+    exit();
+}
+
 }

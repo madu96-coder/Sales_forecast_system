@@ -17,18 +17,18 @@ if (isset($_POST['add_category'])){
         exit();
     }
 }
-//delete category
+// soft delete category
 
 if(isset($_GET['delete'] )){
     $id = $_GET['delete'];
 
-    $sql = "DELETE FROM category WHERE category_id = $id";
+    $sql = "UPDATE category SET status = 'inactive' WHERE category_id = $id AND status = 'active'";
 
     if(mysqli_query($conn, $sql)){
         header("Location: manage_category.php?deleted=1");
         exit();
     }else{
-        echo "Cannot delete: Category is used in products";
+        echo "Error: " . mysqli_error($conn);
     }
 }
 
@@ -63,7 +63,7 @@ if(isset($_POST['update_category'] )){
                 <?php endif; ?>
 
                 <?php if(isset($_GET['deleted'])): ?>
-                    <p style="color:green;">Category deleted</p>
+                    <p style="color:red;">Category removed (inactive)</p>
                     <?php endif; ?>
 
                     <?php if(isset($_GET['updated'])): ?>
@@ -89,8 +89,8 @@ if(isset($_POST['update_category'] )){
                         <th>Action</th>
                     </tr>
 
-                    <?php
-                    $result = mysqli_query($conn, "SELECT * FROM category");
+                    <?php //only show active categories
+                    $result = mysqli_query($conn, "SELECT * FROM category WHERE status = 'active'");
 
                     while($row = mysqli_fetch_assoc($result) ){
                         ?>
@@ -118,6 +118,10 @@ if(isset($_POST['update_category'] )){
                     ?>
 
                 </table>
+                <br>
+                <a href="inactive_categories.php" style="color:orange;">
+                    View Removed Categories
+                </a>
 
                
 

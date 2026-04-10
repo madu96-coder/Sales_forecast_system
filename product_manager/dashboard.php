@@ -18,7 +18,7 @@ checkRole(['product_manager', 'admin']);
 <h2>Products &amp; forecast — Welcome, <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?></h2>
 
 <div class="container menu">
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/products.php" class="card">📦 Products</a>
+
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/production_plan.php" class="card">🏭 production plan</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php" class="card">📈 Forecast view</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/inventory.php" class="card">📦 Inventory view</a>
