@@ -40,7 +40,7 @@ checkRole(['admin','inventory_manager']);
     </div>
 
     <br>
-    <a href="admin/dashboard.php">← Back</a>
+    <a href="inventory_manager/dashboard.php">← Back</a>
 </div>
 
 </body>

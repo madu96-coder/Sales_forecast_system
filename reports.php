@@ -16,7 +16,7 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
 
     <h2>📊 Reports</h2>
 
-    <?php if (in_array($_SESSION['role'], ['inventory_manager', 'admin'], true)): ?>
+    <?php if (in_array($_SESSION['role'], ['inventory_manager', 'admin'], true)): ?> <!-- access available users and adding boxes for each function-->
     <div style="margin:20px 0;">
         <a href="inventory_report.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">

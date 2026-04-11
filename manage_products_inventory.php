@@ -38,7 +38,7 @@ $result = mysqli_query($conn, "SELECT * FROM product WHERE status='active'");
 
 <br>
 
-<table border="1" width="100%">
+<table border="1" width="100%"> <!-- table create -->
 <tr>
     <th>ID</th>
     <th>Name</th>
@@ -47,7 +47,7 @@ $result = mysqli_query($conn, "SELECT * FROM product WHERE status='active'");
     <th>Action</th>
 </tr>
 
-<?php while($row = mysqli_fetch_assoc($result)): ?>
+<?php while($row = mysqli_fetch_assoc($result)): ?> <!--taking data from db raw by raw-->
 
 <tr>
     <td><?php echo $row['product_id']; ?></td>
