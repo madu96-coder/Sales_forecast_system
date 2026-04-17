@@ -5,25 +5,34 @@ include 'includes/config.php';
 // only admin allowed
 checkRole(['admin']);
 
-// GET USER ID
-if(!isset($_GET['id'])) {
+// ===============================
+//  SECURE ID (prevent issues)
+// ===============================
+if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: manage_users.php");
     exit();
 }
 
-$id = $_GET['id'];
+$id = (int)$_GET['id']; // safer
 
+// ===============================
 // FETCH USER DATA
+// ===============================
 $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id='$id'");
 $user = mysqli_fetch_assoc($result);
 
+// ===============================
 // UPDATE USER
+// ===============================
 if(isset($_POST['update'])){   
 
+    // sanitize inputs
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $role = mysqli_real_escape_string($conn, $_POST['role']);
 
-    //  CHECK DUPLICATE (except current user)
+    // ===============================
+    // CHECK DUPLICATE USERNAME
+    // ===============================
     $check = mysqli_query($conn, 
         "SELECT * FROM users WHERE username='$username' AND user_id != '$id'"
     );
@@ -32,20 +41,33 @@ if(isset($_POST['update'])){
         $error = "Username already taken!";
     } else {
 
-        // IF PASSWORD PROVIDED  UPDATE IT
+        // ===============================
+        // REMOVE PASSWORD HASHING
+        // ===============================
         if(!empty($_POST['password'])){
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+        
+        
+              //plain text password
+        
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
 
             $sql = "UPDATE users 
                     SET username='$username', password='$password', role='$role'
                     WHERE user_id='$id'";
         } else {
+
+            // ===============================
             // NO PASSWORD CHANGE
+            // ===============================
             $sql = "UPDATE users 
                     SET username='$username', role='$role'
                     WHERE user_id='$id'";
         }
 
+        // ===============================
+        // EXECUTE UPDATE
+        // ===============================
         if(mysqli_query($conn, $sql)){
             header("Location: manage_users.php?updated=1");
             exit();
@@ -69,7 +91,7 @@ if(isset($_POST['update'])){
 
     <h2>Edit User</h2>
 
-    <!--  SHOW ERROR -->
+    <!-- SHOW ERROR -->
     <?php if(isset($error)): ?>
         <p style="color:red;"><?php echo $error; ?></p>
     <?php endif; ?>
