@@ -1,24 +1,46 @@
 <?php
+// ================================
+// AUTH + DB
+// ================================
 include 'includes/auth.php';
+include 'includes/config.php';
+
 checkRole(['inventory_manager', 'admin','product_manager']);
 
-// search feature
+// ================================
+// SEARCH INPUT
+// ================================
 $search = "";
 
-if(isset($_GET['search'] ) && $_GET['search'] != "" ){
-    $search = mysqli_real_escape_string($conn, $_GET['search'] );
-
-
-// filter query (replace old query)
-$sql = "SELECT product_name, unit_price, stock FROM product WHERE product_name LIKE '%$search%'
-ORDER BY product_name ASC";
-
-}else { $sql = "SELECT product_name, unit_price, stock FROM product ORDER BY product_name ASC";
-
+if(isset($_GET['search']) && $_GET['search'] != ""){
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
 }
+
+// ================================
+// ✅ SINGLE CLEAN QUERY (FIXED)
+// - Uses inventory table
+// - Filters ONLY active products
+// ================================
+$sql = "
+SELECT 
+    p.product_name, 
+    p.unit_price, 
+    COALESCE(i.stock_quantity, 0) AS stock
+FROM product p
+LEFT JOIN inventory i ON p.product_id = i.product_id
+WHERE p.status = 'active'
+";
+
+// APPLY SEARCH IF EXISTS
+if(!empty($search)){
+    $sql .= " AND p.product_name LIKE '%$search%'";
+}
+
+// ORDER
+$sql .= " ORDER BY p.product_name ASC";
+
+// RUN QUERY
 $result = mysqli_query($conn, $sql);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +48,15 @@ $result = mysqli_query($conn, $sql);
 <head>
     <title>Stock levels</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* 🎨 STATUS COLORS */
+        .status-out { color:#8B0000; font-weight:bold; }
+        .status-critical { color:red; font-weight:bold; }
+        .status-low { color:orange; }
+        .status-medium { color:#007BFF; }
+        .status-good { color:green; font-weight:bold; }
+    </style>
 </head>
 
 <body>
@@ -42,33 +73,40 @@ $result = mysqli_query($conn, $sql);
             <th>Status</th>
         </tr>
 
-        <tbody id="tableBody">
+        <tbody>
 
 <?php while($row = mysqli_fetch_assoc($result)) { ?>
 
 <tr>
-    <!-- product name -->
-    <td><?= $row['product_name']; ?></td>
+    <!-- PRODUCT -->
+    <td><?= htmlspecialchars($row['product_name']); ?></td>
 
-    <!-- price -->
+    <!-- PRICE -->
     <td>Rs. <?= number_format($row['unit_price'], 2); ?></td>
 
-    <!-- stock -->
-    <td><?= $row['stock']; ?></td>
+    <!-- STOCK -->
+    <td><?= (int)$row['stock']; ?></td>
 
-    <!-- status -->
+    <!-- STATUS -->
     <td>
         <?php
-        $stock = (int)$row['stock']; // convert to number
+        $stock = (int)$row['stock'];
 
+        // 🎯 CLEAN STATUS LOGIC
         if($stock == 0){
-            echo "<span style='color:red;'>Out of Stock</span>";
+            echo "<span class='status-out'>Out of Stock</span>";
         }
         elseif($stock <= 10){
-            echo "<span style='color:orange;'>Low Stock</span>";
+            echo "<span class='status-critical'>Critical ($stock)</span>";
+        }
+        elseif($stock <= 30){
+            echo "<span class='status-low'>Low ($stock)</span>";
+        }
+        elseif($stock <= 100){
+            echo "<span class='status-medium'>Medium ($stock)</span>";
         }
         else{
-            echo "<span style='color:green;'>In Stock</span>";
+            echo "<span class='status-good'>Good ($stock)</span>";
         }
         ?>
     </td>
@@ -76,16 +114,17 @@ $result = mysqli_query($conn, $sql);
 
 <?php } ?>
 
-</tbody>
-       
-
+        </tbody>
     </table>
 
     <br>
-    <a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">Back to dashboard</a>
+
+    <!-- BACK BUTTON -->
+    <a href="<?= htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">
+        ← Back to dashboard
+    </a>
 
 </div>
-
 
 </body>
 </html>

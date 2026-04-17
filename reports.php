@@ -28,7 +28,7 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
 
     <?php if (in_array($_SESSION['role'], ['sales_manager', 'admin'], true)): ?>
     <div style="margin:20px 0;">
-        <a href="view_sales.php" style="text-decoration:none;">
+        <a href="sales_report.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
                 📈 Sales report
             </div>
@@ -38,9 +38,9 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
 
     <?php if (in_array($_SESSION['role'], ['product_manager', 'admin'], true)): ?>
     <div style="margin:20px 0;">
-        <a href="forecast.php" style="text-decoration:none;">
+        <a href="production_plan_report.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
-                📋 Productoin plan report
+                📋 Production plan report
             </div>
         </a>
     </div>
