@@ -8,9 +8,9 @@ include 'includes/config.php';
 checkRole(['admin', 'product_manager']);
 
 /*
-|--------------------------------------------------------------------------
-| FIXED QUERY (IMPORTANT)
-|--------------------------------------------------------------------------
+|
+| 
+|
 | - Avoid double counting
 | - Use subqueries for forecast + stock
 | - Filter ONLY active products

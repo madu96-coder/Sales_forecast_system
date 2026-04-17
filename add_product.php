@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
 
     if($row){
         // ===================================
-        // PRODUCT EXISTS → UPDATE STOCK ONLY
+        // PRODUCT EXISTS and UPDATE STOCK ONLY
         // ===================================
         $product_id = $row['product_id'];
         $newStock = $row['stock'] + $stock;
@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
 
     } else {
         // ===================================
-        // NEW PRODUCT → INSERT
+        // NEW PRODUCT and INSERT
         // ===================================
         $sql = "
             INSERT INTO product 

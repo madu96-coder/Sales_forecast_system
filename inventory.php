@@ -12,10 +12,10 @@ checkRole(['inventory_manager', 'product_manager', 'admin']);
 
 /*
 |--------------------------------------------------------------------------
-| FETCH INVENTORY DATA (FIXED)
+| FETCH INVENTORY DATA 
 |--------------------------------------------------------------------------
 | - Join product + inventory
-| - Use inventory.stock_quantity (REAL STOCK)
+| - Use inventory.stock_quantity 
 | - Filter ONLY active products
 | - Avoid using product.stock
 */

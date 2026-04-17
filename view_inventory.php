@@ -12,7 +12,7 @@ checkRole(['inventory_manager', 'product_manager', 'admin']);
 
 /*
 |--------------------------------------------------------------------------
-| FETCH INVENTORY DATA (FIXED)
+| FETCH INVENTORY DATA 
 |--------------------------------------------------------------------------
 | - Join product + inventory
 | - Use inventory.stock_quantity (REAL STOCK)
@@ -72,7 +72,7 @@ ORDER BY p.product_name ASC
         <?php
         $stock = (int)$row['stock']; // SAFE CAST
 
-        // 🎯 IMPROVED STATUS LOGIC
+        //  IMPROVED STATUS LOGIC
         if($stock == 0){
             echo "<span class='out'>Out (0)</span>";
         }

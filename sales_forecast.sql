@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 11, 2026 at 09:25 AM
+-- Generation Time: Apr 17, 2026 at 09:54 PM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `category_name` varchar(100) NOT NULL,
   `status` enum('active','inactive') DEFAULT 'active',
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `category`
@@ -47,7 +47,8 @@ INSERT INTO `category` (`category_id`, `category_name`, `status`) VALUES
 (9, 'soap', 'active'),
 (10, 'electronics', 'inactive'),
 (11, 'toys', 'active'),
-(12, 'glasses', 'active');
+(12, 'glasses', 'active'),
+(13, 'fruit', 'active');
 
 -- --------------------------------------------------------
 
@@ -181,7 +182,6 @@ CREATE TABLE IF NOT EXISTS `product` (
   `product_name` varchar(100) NOT NULL,
   `unit_price` decimal(10,2) NOT NULL,
   `category_id` int NOT NULL,
-  `stock` int DEFAULT '0',
   `status` varchar(20) DEFAULT 'active',
   PRIMARY KEY (`product_id`),
   UNIQUE KEY `product_name` (`product_name`),
@@ -192,36 +192,36 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `unit_price`, `category_id`, `stock`, `status`) VALUES
-(1, 'Lia Lavender Incense', 150.00, 1, 55, 'active'),
-(2, 'Lia jasmine Incense', 150.00, 1, 30, 'active'),
-(3, 'Lia kewda Incense', 150.00, 1, 14, 'active'),
-(4, 'Lia Honey rose Incense', 150.00, 1, 16, 'active'),
-(5, 'Lia pineapple Incense', 150.00, 1, 5, 'active'),
-(6, 'Lia cinnamon Incense', 150.00, 1, 20, 'active'),
-(7, 'Citronella Mosquito repellent incense', 100.00, 3, 18, 'active'),
-(8, 'Good luck seven incense', 100.00, 1, 24, 'inactive'),
-(9, 'Three is one incense ', 200.00, 1, 19, 'active'),
-(10, 'Fairytale long sticks', 350.00, 1, 20, 'active'),
-(11, 'Lia fruits long stick', 350.00, 1, 22, 'active'),
-(12, 'Parampara cup Sambrani 12 pcs', 650.00, 4, 21, 'active'),
-(13, 'Sama Cup Sambrani 12 pcs', 550.00, 4, 20, 'active'),
-(14, 'Rahasyamai Long Sticks', 350.00, 1, 20, 'active'),
-(15, 'Shivaji Cup Sambrani 12 pc', 450.00, 4, 20, 'active'),
-(16, 'Suwanda Sambrani Powder', 70.00, 4, 20, 'active'),
-(17, 'Sinhala Tamil New year Gift pack', 1000.00, 4, 20, 'active'),
-(18, 'Parampara long Sticks premium', 800.00, 1, 20, 'active'),
-(19, 'Room Freshener Chandanam', 1250.00, 2, 20, 'active'),
-(20, 'Iris Lavender Fragrance Sachet', 390.00, 2, 20, 'active'),
-(31, 'siddalepa   ', 200.00, 4, 4, 'inactive'),
-(36, 'lux', 200.00, 9, 12, 'inactive'),
-(37, 'sunlight ', 120.00, 9, 2, 'active'),
-(38, 'kohomba ', 200.00, 9, 2, 'active'),
-(39, 'laptop', 1000.00, 10, 1, 'active'),
-(40, 'acer laptop', 2000.00, 10, 1, 'active'),
-(41, 'doll', 100.00, 11, 1, 'inactive'),
-(42, 'iphone', 3000.00, 10, 3, 'active'),
-(43, 'jugs', 200.00, 12, 16, 'active');
+INSERT INTO `product` (`product_id`, `product_name`, `unit_price`, `category_id`, `status`) VALUES
+(1, 'Lia Lavender Incense', 150.00, 1, 'active'),
+(2, 'Lia jasmine Incense', 150.00, 1, 'active'),
+(3, 'Lia kewda Incense', 150.00, 1, 'active'),
+(4, 'Lia Honey rose Incense', 150.00, 1, 'active'),
+(5, 'Lia pineapple Incense', 150.00, 1, 'active'),
+(6, 'Lia cinnamon Incense', 150.00, 1, 'active'),
+(7, 'Citronella Mosquito repellent incense', 100.00, 3, 'active'),
+(8, 'Good luck seven incense', 100.00, 1, 'active'),
+(9, 'Three is one incense ', 200.00, 1, 'active'),
+(10, 'Fairytale long sticks', 350.00, 1, 'active'),
+(11, 'Lia fruits long stick', 350.00, 1, 'active'),
+(12, 'Parampara cup Sambrani 12 pcs', 650.00, 4, 'active'),
+(13, 'Sama Cup Sambrani 12 pcs', 550.00, 4, 'active'),
+(14, 'Rahasyamai Long Sticks', 350.00, 1, 'active'),
+(15, 'Shivaji Cup Sambrani 12 pc', 450.00, 4, 'active'),
+(16, 'Suwanda Sambrani Powder', 70.00, 4, 'active'),
+(17, 'Sinhala Tamil New year Gift pack', 1000.00, 4, 'active'),
+(18, 'Parampara long Sticks premium', 800.00, 1, 'active'),
+(19, 'Room Freshener Chandanam', 1250.00, 2, 'active'),
+(20, 'Iris Lavender Fragrance Sachet', 390.00, 2, 'active'),
+(31, 'siddalepa   ', 200.00, 4, 'inactive'),
+(36, 'lux', 200.00, 9, 'inactive'),
+(37, 'sunlight ', 120.00, 9, 'inactive'),
+(38, 'kohomba ', 200.00, 9, 'inactive'),
+(39, 'laptop', 1000.00, 10, 'inactive'),
+(40, 'acer laptop', 2000.00, 10, 'inactive'),
+(41, 'doll', 100.00, 11, 'inactive'),
+(42, 'iphone', 3000.00, 10, 'inactive'),
+(43, 'jugs', 200.00, 12, 'inactive');
 
 -- --------------------------------------------------------
 
@@ -382,19 +382,25 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(250) NOT NULL,
   `role` enum('admin','sales_manager','production_manager','inventory_manager') NOT NULL,
+  `status` varchar(20) DEFAULT 'active',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `role`) VALUES
-(1, 'isanka', '123', 'admin'),
-(2, 'sanda', '123', 'sales_manager'),
-(3, 'nimesh', '123', 'production_manager'),
-(4, 'kasun', '123', 'inventory_manager');
+INSERT INTO `users` (`user_id`, `username`, `password`, `role`, `status`) VALUES
+(1, 'isanka', '123', 'admin', 'active'),
+(2, 'sanda', '123', 'sales_manager', 'active'),
+(3, 'nimesh', '123', 'production_manager', 'active'),
+(4, 'kasuna', '123', 'inventory_manager', 'active'),
+(5, 'venura', '123', 'sales_manager', 'inactive'),
+(6, 'mahesh', '123', 'sales_manager', 'inactive'),
+(12, 'madu', '123', 'sales_manager', 'inactive'),
+(14, 'pavani', '123', 'sales_manager', 'inactive'),
+(15, 'jhon', '111', '', 'inactive');
 
 --
 -- Constraints for dumped tables

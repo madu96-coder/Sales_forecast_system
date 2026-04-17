@@ -17,7 +17,7 @@ if(isset($_GET['search']) && $_GET['search'] != ""){
 }
 
 // ================================
-// ✅ SINGLE CLEAN QUERY (FIXED)
+//
 // - Uses inventory table
 // - Filters ONLY active products
 // ================================
@@ -50,7 +50,7 @@ $result = mysqli_query($conn, $sql);
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* 🎨 STATUS COLORS */
+        /*  STATUS COLORS */
         .status-out { color:#8B0000; font-weight:bold; }
         .status-critical { color:red; font-weight:bold; }
         .status-low { color:orange; }
