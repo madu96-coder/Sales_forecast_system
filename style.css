@@ -730,3 +730,9 @@ tr:last-child td {
   font-size: 24px;
   margin-bottom: 10px;
 }
+
+.admin-row{
+  background: #e6f7ff;
+  color:#003366;
+  font-weight:bold;
+}

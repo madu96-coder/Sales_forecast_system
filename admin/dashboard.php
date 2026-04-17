@@ -41,7 +41,7 @@ include __DIR__ . '/../dashboard_stats.php';
 
 
     <div class="card">
-        <a href="users.php">
+        <a href="../manage_users.php">
             <i class="fa fa-users"></i>
             <p> 👥 Manage Users</p>
         </a>
