@@ -7,7 +7,7 @@ checkRole(['inventory_manager', 'admin']);
 if(isset($_POST['submit'])){
 
     $product_id = $_POST['product_id'];
-    $stock = $_POST['stock'];
+    $stock = (int) $_POST['stock']; // safety
 
     // NEW PRODUCT adding logic
     if($product_id == "new"){
@@ -16,29 +16,47 @@ if(isset($_POST['submit'])){
         $price = $_POST['new_price'];
         $category = $_POST['new_category'] ?? null; 
 
-
-        //validation part for add stock
-
+        // validation
         if(empty($name) || empty($price) || empty($category)){
-            echo "Please fill all fields(name, price, category)";
+            echo "Please fill all fields (name, price, category)";
             exit();
         }
 
-        $sql1 = "INSERT INTO product (product_name, unit_price, category_id, stock)
-                 VALUES ('$name', '$price', '$category', '$stock')";
+        // insert new product into product table
+        $sql1 = "INSERT INTO product (product_name, unit_price, category_id)
+                 VALUES ('$name', '$price', '$category')";
 
         if(!mysqli_query($conn, $sql1)){
             echo "Error: " . mysqli_error($conn);
             exit();
         }
 
+        //  insert stock into inventory table
+        $product_id_new = mysqli_insert_id($conn);
+
+        mysqli_query($conn, "INSERT INTO inventory (product_id, stock_quantity) 
+                             VALUES ($product_id_new, $stock)");
+
     } 
     // EXISTING PRODUCT adding logic
     else {
 
-        $sql2 = "UPDATE product 
-                 SET stock = stock + $stock 
-                 WHERE product_id = $product_id";
+        //  CHECK if inventory record exists
+        $check = mysqli_query($conn, "SELECT * FROM inventory WHERE product_id = $product_id");
+
+        if(mysqli_num_rows($check) > 0){
+
+            // update inventory table 
+            $sql2 = "UPDATE inventory 
+                     SET stock_quantity = stock_quantity + $stock 
+                     WHERE product_id = $product_id";
+
+        } else {
+
+            //  if no record, create one
+            $sql2 = "INSERT INTO inventory (product_id, stock_quantity) 
+                     VALUES ($product_id, $stock)";
+        }
 
         if(!mysqli_query($conn, $sql2)){
             echo "Error: " . mysqli_error($conn);
@@ -64,14 +82,12 @@ if(isset($_POST['submit'])){
 
     <h2>Add Stock</h2>
 
-                     <!-- show success pop message-->
-                    <?php if(isset($_GET['success'])): ?>
-    <p style="color:green; margin-bottom:10px;">
-        ✅ Stock updated successfully
-    </p>
-<?php endif; ?>
-
-
+    <!-- success message -->
+    <?php if(isset($_GET['success'])): ?>
+        <p style="color:green; margin-bottom:10px;">
+            ✅ Stock updated successfully
+        </p>
+    <?php endif; ?>
 
     <form method="POST">
 
@@ -106,9 +122,6 @@ if(isset($_POST['submit'])){
             <label>Unit Price</label>
             <input type="number" name="new_price" id="new_price">
 
-
-            <!-- add category here-->
-
             <label>Category</label>
             <select name="new_category" id="new_category">
                 <option value="">Select Category</option>
@@ -117,10 +130,10 @@ if(isset($_POST['submit'])){
                 $cat = mysqli_query($conn, "SELECT * FROM category");
 
                 while($c = mysqli_fetch_assoc($cat)){
-                    echo "<option value = '{$c['category_id']}'>
-                    {$c['category_name']} </optoin>";
+                    echo "<option value='{$c['category_id']}'>
+                          {$c['category_name']}
+                          </option>";
                 }
-
                 ?>
             </select>
 

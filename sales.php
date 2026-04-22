@@ -15,9 +15,9 @@ if (isset($_POST['submit'])) {
     }
 
     //  get stock
-    $stockResult = mysqli_query($conn, "SELECT stock FROM product WHERE product_id = $product_id");
+    $stockResult = mysqli_query($conn, "SELECT stock_quantity FROM inventory WHERE product_id = $product_id");
     $stockRow = mysqli_fetch_assoc($stockResult);
-    $currentStock = $stockRow['stock'] ?? 0;
+    $currentStock = $stockRow['stock_quantity'] ?? 0;
 
     //  stock check
     if($quantity > $currentStock){
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 
         // update stock
         $newStock = $currentStock - $quantity;
-        mysqli_query($conn, "UPDATE product SET stock = $newStock WHERE product_id = $product_id");
+        mysqli_query($conn, "UPDATE inventory SET stock_quantity = $newStock WHERE product_id = $product_id");
 
         echo "<script>alert('✅ Sales added successfully');</script>";
 
