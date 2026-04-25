@@ -1,5 +1,5 @@
 <?php
-include 'includes/auth.php';
+include __DIR__ . '/includes/auth.php';
 checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
 ?>
 
@@ -7,7 +7,8 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
 <html>
 <head>
     <title>Reports</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- FIX CSS -->
+    <link rel="stylesheet" href="<?php echo APP_BASE; ?>/style.css">
 </head>
 
 <body>
@@ -16,9 +17,10 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
 
     <h2>📊 Reports</h2>
 
-    <?php if (in_array($_SESSION['role'], ['inventory_manager', 'admin'], true)): ?> <!-- access available users and adding boxes for each function-->
+    <!-- INVENTORY -->
+    <?php if (in_array($_SESSION['role'], ['inventory_manager', 'admin'], true)): ?>
     <div style="margin:20px 0;">
-        <a href="inventory_report.php" style="text-decoration:none;">
+        <a href="<?php echo APP_BASE; ?>/inventory_report.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
                 📦 Inventory report
             </div>
@@ -26,9 +28,10 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
     </div>
     <?php endif; ?>
 
+    <!-- SALES -->
     <?php if (in_array($_SESSION['role'], ['sales_manager', 'admin'], true)): ?>
     <div style="margin:20px 0;">
-        <a href="sales_report.php" style="text-decoration:none;">
+        <a href="<?php echo APP_BASE; ?>/sales_report.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
                 📈 Sales report
             </div>
@@ -36,9 +39,10 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
     </div>
     <?php endif; ?>
 
+    <!-- PRODUCTION -->
     <?php if (in_array($_SESSION['role'], ['product_manager', 'admin'], true)): ?>
     <div style="margin:20px 0;">
-        <a href="production_plan_report.php" style="text-decoration:none;">
+        <a href="<?php echo APP_BASE; ?>/production_report.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
                 📋 Production plan report
             </div>
@@ -47,7 +51,10 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
     <?php endif; ?>
 
     <br>
-    <a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">⬅ Back to dashboard</a>
+
+    <a href="<?php echo htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">
+        ⬅ Back to dashboard
+    </a>
 
 </div>
 

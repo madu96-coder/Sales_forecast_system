@@ -66,12 +66,12 @@ if (isset($_POST['login'])) {
 
                 <div class="login-field">
                     <label class="login-field__label" for="login-username">Username</label>
-                    <input class="login-field__input" id="login-username" type="text" name="username" placeholder="Enter your username" required autocomplete="username">
+                    <input class="login-field__input" id="login-username" type="text" name="username" placeholder="Enter your username" required autocomplete="on">
                 </div>
 
                 <div class="login-field">
                     <label class="login-field__label" for="login-password">Password</label>
-                    <input class="login-field__input" id="login-password" type="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+                    <input class="login-field__input" id="login-password" type="password" name="password" placeholder="Enter your password" required autocomplete="on">
                 </div>
 
                 <button class="login-submit" type="submit" name="login" value="1">Sign in</button>

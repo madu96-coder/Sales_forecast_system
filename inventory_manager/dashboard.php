@@ -23,7 +23,7 @@ checkRole(['inventory_manager', 'admin']);
 <div class="container menu">
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_inventory.php" class="card">➕ Manage Inventory</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/stock_level.php" class="card">📦 Stock levels</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/inventory_report.php" class="card">📋 Inventory report</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php" class="card">📋 Report</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/logout.php" class="card logout-btn">🚪 Logout</a>
 </div>
 

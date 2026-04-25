@@ -69,7 +69,7 @@ $result = mysqli_query($conn, "SELECT * FROM users WHERE status='active'");
 <html>
 <head>
     <title>Manage Users</title>
-    <link rel="stylesheet" href="/Sales_forecast_System/style.css">
+    <link rel="stylesheet" href="/Sales-forecast-system/style.css">
 </head>
 
 <body>

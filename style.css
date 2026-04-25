@@ -736,3 +736,44 @@ tr:last-child td {
   color:#003366;
   font-weight:bold;
 }
+ 
+/* css for tables */
+
+.login-box div {
+  transition: 0.3s;
+}
+
+.login-box div:hover{
+  background: #e0e0e0;
+  cursor: pointer;
+  transform: scale(1.02);
+}
+table {
+  border-collapse: collapse;
+  background: white;
+}
+
+th{
+  background: #333;
+  color: white;
+}
+
+td,th {
+  padding: 10px;
+  text-align: center;;
+}
+
+button{
+  padding: 8px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* report generate without shadows */
+
+@media print{
+  button,
+  .btn,
+  .no-print {
+    display: none !important;  }
+}

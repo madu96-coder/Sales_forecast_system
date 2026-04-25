@@ -126,13 +126,9 @@ ORDER BY p.product_name ASC
 
 <br>
 
-<!-- PRINT REPORT -->
-<button onclick="window.print()" 
-style="padding:10px 20px; background:#0f4c5c; color:white; border:none; border-radius:5px;">
-    🖨️ Generate Report
-</button>
 
-<br><br>
+
+
 
 <a href="<?= htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])) ?>">
     ← Back
