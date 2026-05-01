@@ -76,7 +76,7 @@ ORDER BY p.product_name ASC
         if($stock == 0){
             echo "<span class='out'>Out (0)</span>";
         }
-        elseif($stock <= 10){
+        elseif($stock <= 20){
             echo "<span class='low'>Low ($stock)</span>";
         }
         elseif($stock <= 30){
