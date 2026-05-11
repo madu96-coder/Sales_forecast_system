@@ -10,11 +10,16 @@ include __DIR__ . '/../dashboard_stats.php';
 
 <head>
     <title>Admin dashboard</title>
-    <link href="<?php echo htmlspecialchars(APP_BASE); ?>/style.css" rel="stylesheet">
+
+    <link href="<?php echo htmlspecialchars(APP_BASE); ?>/style.css"
+          rel="stylesheet">
 </head>
+
 <body>
 
+<!-- SIDEBAR -->
 <div class="sidebar">
+
     <h2>📊 Sales Forecast</h2>
 
     <a href="#">🏠 Dashboard</a>
@@ -23,62 +28,183 @@ include __DIR__ . '/../dashboard_stats.php';
     <a href="../manage_inventory.php">📦 Inventory</a>
     <a href="../reports.php">📋 Reports</a>
 
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/logout.php" class="logout">🚪 Logout</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/logout.php"
+       class="logout">
+
+       🚪 Logout
+
+    </a>
+
 </div>
 
+<!-- MAIN -->
 <div class="main">
 
 <?php if (!empty($_GET['access_denied'])): ?>
-    <p class="alert-box">You do not have access to that page.</p>
+
+    <p class="alert-box">
+        You do not have access to that page.
+    </p>
+
 <?php endif; ?>
 
-<h2>Admin — Welcome, <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?></h2>
+<h2 class="dashboard-title">
 
-<!-- TOP CARDS -->
-<div class="grid">
+    👑 Admin — Welcome,
+    <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?>
 
-    <div class="card">
-        <h3>Total Sales</h3>
-        <p>Rs. <?php echo number_format($totalSales ?? 0, 2); ?></p>
+</h2>
+
+<!-- =======================================
+     TOP BIG CARDS
+======================================= -->
+
+<div class="top-grid">
+
+    <div class="top-card top-blue">
+
+        <h3>TOTAL SALES</h3>
+
+        <p>
+            Rs. <?php echo number_format($totalSales ?? 0, 2); ?>
+        </p>
+
     </div>
 
-    <div class="card">
-        <h3>Top Product</h3>
-        <p><?php echo htmlspecialchars($bestProduct['product_name'] ?? 'N/A'); ?></p>
+    <div class="top-card top-purple">
+
+        <h3>TOP PRODUCT</h3>
+
+        <p>
+            <?php echo htmlspecialchars($bestProduct['product_name'] ?? 'N/A'); ?>
+        </p>
+
     </div>
 
-    <div class="card">
-        <h3>This Month</h3>
-        <p>Rs. <?php echo number_format($currentMonth['total'] ?? 0, 2); ?></p>
+    <div class="top-card top-green">
+
+        <h3>THIS MONTH</h3>
+
+        <p>
+            Rs. <?php echo number_format($currentMonth['total'] ?? 0, 2); ?>
+        </p>
+
     </div>
 
 </div>
 
-<!-- ACTION CARDS -->
-<div class="grid">
+<!-- =======================================
+     ACTION BUTTONS
+======================================= -->
 
-    <div class="card">
-        <a href="../manage_users.php">👥 Manage Users</a>
-    </div>
+<div class="action-grid">
 
-    <div class="card">
-        <a href="../manage_category.php">⚙️ Manage System</a>
-    </div>
+    <a href="../manage_users.php"
+       class="action-card light-blue">
 
-    <div class="card">
-        <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php">📈 View Forecast</a>
-    </div>
+        <div>
+            👥 Manage Users
+        </div>
+
+        <span>›</span>
+
+    </a>
+
+    <a href="../manage_category.php"
+       class="action-card light-orange">
+
+        <div>
+            ⚙️ Manage System
+        </div>
+
+        <span>›</span>
+
+    </a>
+
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php"
+       class="action-card light-red">
+
+        <div>
+            📈 View Forecast
+        </div>
+
+        <span>›</span>
+
+    </a>
 
 </div>
 
-<!-- MENU CARDS -->
-<div class="grid">
+<!-- =======================================
+     MAIN MENU
+======================================= -->
 
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/production_plan.php" class="card">📦 Production plan</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/sales.php" class="card">🛒➕ Add New Sales</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/view_sales.php" class="card">📊 View sales History</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_inventory.php" class="card">📦⚙️ Manage Inventory</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php" class="card">📋 Reports</a>
+<div class="action-grid">
+
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/production_plan.php"
+       class="action-card light-blue">
+
+        <div>
+            📦 Production Plan
+        </div>
+
+        <span>›</span>
+
+    </a>
+
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/sales.php"
+       class="action-card light-green">
+
+        <div>
+            🛒 Add New Sales
+        </div>
+
+        <span>›</span>
+
+    </a>
+
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/view_sales.php"
+       class="action-card light-purple">
+
+        <div>
+            📊 View Sales History
+        </div>
+
+        <span>›</span>
+
+    </a>
+
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_inventory.php"
+       class="action-card light-orange">
+
+        <div>
+            📦 Manage Inventory
+        </div>
+
+        <span>›</span>
+
+    </a>
+
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php"
+       class="action-card light-cyan">
+
+        <div>
+            📋 Reports
+        </div>
+
+        <span>›</span>
+
+    </a>
+
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/logout.php"
+       class="action-card light-red">
+
+        <div>
+            🚪 Logout
+        </div>
+
+        <span>›</span>
+
+    </a>
 
 </div>
 
