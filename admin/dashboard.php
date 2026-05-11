@@ -66,7 +66,7 @@ include __DIR__ . '/../dashboard_stats.php';
     </div>
 
     <div class="card">
-        <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php">📈 Forecast</a>
+        <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php">📈 View Forecast</a>
     </div>
 
 </div>
@@ -75,9 +75,9 @@ include __DIR__ . '/../dashboard_stats.php';
 <div class="grid">
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/production_plan.php" class="card">📦 Production plan</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/sales.php" class="card">💰 Sales</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/view_sales.php" class="card">📊 View sales</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_inventory.php" class="card">➕ Inventory</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/sales.php" class="card">🛒➕ Add New Sales</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/view_sales.php" class="card">📊 View sales History</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_inventory.php" class="card">📦⚙️ Manage Inventory</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php" class="card">📋 Reports</a>
 
 </div>

@@ -59,15 +59,20 @@ ORDER BY p.product_name ASC
     <td><?= $row['forecast_qty']; ?></td>
     <td><?= $row['current_stock']; ?></td>
     <td>
-        <?php 
-        $needed = (int)$row['production_needed'];
+        <?php
 
-        if($needed <= 0){
-            echo "<span style='color:green;'>Sufficient</span>";
-        } else {
-            echo "<span style='color:red;'>$needed</span>";
-        }
-        ?>
+$needed = (int)$row['production_needed'];
+
+if($needed <= 0){
+
+    echo "<span style='color:green; font-weight:bold;'>Sufficient</span>";
+
+} else {
+
+    echo "<span style='color:orange; font-weight:bold;'>Production Needed ($needed)</span>";
+}
+
+?>
     </td>
 </tr>
 <?php } ?>

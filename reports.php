@@ -44,7 +44,7 @@ checkRole(['admin', 'sales_manager', 'product_manager', 'inventory_manager']);
     <div style="margin:20px 0;">
         <a href="<?php echo APP_BASE; ?>/production_report.php" style="text-decoration:none;">
             <div style="padding:15px; background:#f3f3f3; border-radius:10px;">
-                📋 Production plan report
+                📋 Production report
             </div>
         </a>
     </div>

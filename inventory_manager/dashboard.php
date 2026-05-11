@@ -22,8 +22,8 @@ checkRole(['inventory_manager', 'admin']);
     <h2>📦 Inventory Panel</h2>
 
     <a href="../inventory_manager/dashboard.php">🏠 Dashboard</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_inventory.php">➕ Manage Inventory</a>
-    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/stock_level.php">📦 Stock Levels</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_inventory.php">📦⚙️ Manage Inventory</a>
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/stock_level.php">📈📦 Stock Levels</a>
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php">📋 Reports</a>
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/logout.php" class="logout">🚪 Logout</a>

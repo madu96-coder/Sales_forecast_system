@@ -39,16 +39,16 @@ checkRole(['product_manager', 'admin']);
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/production_plan.php" class="card">
         <h3>Production Plan</h3>
-        <p>Manage production</p>
+        <p>Production overview</p>
     </a>
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php" class="card">
-        <h3>Forecast View</h3>
+        <h3> View Forecast</h3>
         <p>Check predictions</p>
     </a>
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/inventory.php" class="card">
-        <h3>Inventory View</h3>
+        <h3> View Inventory</h3>
         <p>View stock levels</p>
     </a>
 

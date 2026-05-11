@@ -21,8 +21,8 @@ checkRole(['sales_manager', 'admin']);
 
     <a href=>🏠 Dashboard</a>
     <a href="../sales.php">💰 Sales</a>
-    <a href="../view_sales.php">📊 View Sales</a>
-    <a href="../forecast.php"> 📈Adjust forecast</a>
+    <a href="../view_sales.php">📊 View Sales History</a>
+    <a href="../forecast.php"> 📈 View Forecast</a>
     <a href="../reports.php">📋 Reports</a>
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/logout.php" class="logout">🚪 Logout</a>
@@ -37,18 +37,18 @@ checkRole(['sales_manager', 'admin']);
 <div class="grid">
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/sales.php" class="card">
-        <h3>Sales Entry</h3>
+        <h3>Sales</h3>
         <p>Add new sales</p>
     </a>
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/view_sales.php" class="card">
-        <h3>View Sales</h3>
+        <h3>View Sales History</h3>
         <p>Check sales records</p>
     </a>
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/forecast.php" class="card">
-        <h3>Adjust Forecast</h3>
-        <p>Update predictions</p>
+        <h3>View Forecast</h3>
+        <p>Check predictions</p>
     </a>
 
 </div>

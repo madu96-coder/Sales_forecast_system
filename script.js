@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             xhr.send();
         });
 
-        // ✅🔥 NEW FIX: TRIGGER CATEGORY CHANGE ON PAGE LOAD
+        //  TRIGGER CATEGORY CHANGE ON PAGE LOAD
         // This ensures products + price load immediately
         if (category.value) {
             category.dispatchEvent(new Event("change"));
@@ -60,35 +60,129 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
-    //  FORECAST PAGE LOGIC (UNCHANGED ✅)
+      
+    //  FORECAST PAGE LOGIC 
     const canvas = document.getElementById("salesChart");
 
-    if (canvas) {
-        const labels = JSON.parse(canvas.dataset.labels);
-        const data = JSON.parse(canvas.dataset.values);
+if (canvas) {
 
-        const ctx = canvas.getContext("2d");
+    const labels = JSON.parse(canvas.dataset.labels);
+    const data = JSON.parse(canvas.dataset.values);
 
-        new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: "Monthly Sales",
-                    data: data,
-                    borderWidth: 2,
-                    tension: 0.3
-                }]
+    const ctx = canvas.getContext("2d");
+
+    /*
+    ==========================================
+    GRADIENT BACKGROUND
+    ==========================================
+    */
+
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+
+    gradient.addColorStop(0, "rgba(54, 162, 235, 0.45)");
+    gradient.addColorStop(1, "rgba(54, 162, 235, 0.02)");
+
+    /*
+    ==========================================
+    MODERN CHART
+    ==========================================
+    */
+
+    new Chart(ctx, {
+
+        type: "line",
+
+        data: {
+
+            labels: labels,
+
+            datasets: [{
+
+                label: "Monthly Sales Trend",
+
+                data: data,
+
+                fill: true,
+
+                backgroundColor: gradient,
+
+                borderColor: "#36A2EB",
+
+                borderWidth: 3,
+
+                tension: 0.4,
+
+                pointBackgroundColor: "#36A2EB",
+
+                pointBorderColor: "#ffffff",
+
+                pointBorderWidth: 2,
+
+                pointRadius: 5,
+
+                pointHoverRadius: 8,
+
+                hoverBorderWidth: 3
+
+            }]
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    labels: {
+
+                        color: "#333",
+
+                        font: {
+
+                            size: 14,
+
+                            weight: "bold"
+                        }
+                    }
+                }
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+
+            scales: {
+
+                x: {
+
+                    grid: {
+
+                        display: false
+                    },
+
+                    ticks: {
+
+                        color: "#555"
+                    }
+                },
+
+                y: {
+
+                    beginAtZero: true,
+
+                    grid: {
+
+                        color: "rgba(0,0,0,0.05)"
+                    },
+
+                    ticks: {
+
+                        color: "#555"
                     }
                 }
             }
-        });
-    }
+        }
+    });
+}
+
+ 
 
 });
