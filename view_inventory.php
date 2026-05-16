@@ -93,10 +93,7 @@ ORDER BY p.product_name ASC
 </table>
 
 <br>
-
-<a href="<?= htmlspecialchars(APP_BASE . '/' . role_dashboard_path($_SESSION['role'])); ?>">
-    ← Back to dashboard
-</a>
+<a href="manage_inventory.php">← Back</a>
 
 </div>
 
