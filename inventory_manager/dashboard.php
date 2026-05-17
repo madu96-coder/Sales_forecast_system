@@ -89,6 +89,10 @@ $outStock = $outStockData['out_stock'];
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/stock_level.php">
         📈 Stock Levels
     </a>
+    
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_supplier.php">
+         🚚 Manage Supplier
+    </a>
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php">
         📋 Reports
@@ -178,6 +182,17 @@ $outStock = $outStockData['out_stock'];
         <span>›</span>
 
     </a>
+
+    <a href="<?php echo htmlspecialchars(APP_BASE); ?>/manage_supplier.php"
+   class="action-card light-yellow">
+
+    <div>
+        🚚 Manage Suppliers
+    </div>
+
+    <span>›</span>
+
+</a>
 
     <a href="<?php echo htmlspecialchars(APP_BASE); ?>/reports.php"
        class="action-card light-cyan">

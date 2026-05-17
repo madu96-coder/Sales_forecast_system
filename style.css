@@ -2569,3 +2569,564 @@ body{
     }
 
 }
+
+/* =========================================
+   MANAGE SUPPLIER PAGE
+========================================= */
+
+.main{
+    width: calc(100% - 260px);
+    margin-left: 260px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+
+/* PAGE TITLE */
+
+.dashboard-title{
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 40px;
+    color: #1e293b;
+}
+
+
+/* FORM CARD */
+
+.form-card{
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto 40px auto;
+}
+
+
+/* FORM */
+
+.form-card form{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+/* INPUTS */
+
+.form-card input{
+    flex: 1;
+    min-width: 250px;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 16px;
+}
+
+
+/* BUTTON */
+
+.form-card button{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.form-card button:hover{
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+
+/* TABLE CARD */
+
+.table-card{
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    overflow-x: auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+
+/* TABLE */
+
+.table-card table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+
+/* TABLE HEADER */
+
+.table-card thead{
+    background: #1e1e1e;
+    color: white;
+}
+
+
+.table-card th{
+    padding: 22px;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+/* TABLE BODY */
+
+.table-card td{
+    padding: 24px;
+    text-align: center;
+    font-size: 17px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* ZEBRA STRIPES */
+
+.table-card tbody tr:nth-child(even){
+    background: #f1f5f9;
+}
+
+
+/* DELETE BUTTON */
+
+.table-card td a{
+    color: #e11d48;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+.table-card td a:hover{
+    opacity: 0.7;
+}
+
+
+/* SUCCESS MESSAGE */
+
+.success-box{
+    max-width: 1300px;
+    margin: 0 auto 20px auto;
+    background: #dcfce7;
+    color: #166534;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+
+/* ERROR MESSAGE */
+
+.alert-box{
+    max-width: 1300px;
+    margin: 0 auto 20px auto;
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* =========================================
+   MANAGE SUPPLIER PAGE FIX
+========================================= */
+
+.supplier-page{
+
+    width: calc(100% - 260px);
+
+    margin-left: 260px;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    overflow-x: hidden;
+
+}
+
+
+/* TITLE */
+
+.supplier-page .dashboard-title{
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* FORM CARD */
+
+.supplier-page .form-card{
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto 40px auto;
+
+}
+
+
+/* FORM */
+
+.supplier-page .form-card form{
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/* INPUTS */
+
+.supplier-page .form-card input{
+
+    flex: 1;
+
+    min-width: 250px;
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    border: 1px solid #cbd5e1;
+
+    font-size: 16px;
+
+}
+
+
+/* BUTTON */
+
+.supplier-page .form-card button{
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.supplier-page .form-card button:hover{
+
+    opacity: 0.95;
+
+}
+
+
+/* TABLE CARD */
+
+.supplier-page .table-card{
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    overflow-x: auto;
+
+}
+
+
+/* TABLE */
+
+.supplier-page table{
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+    background: white;
+
+}
+
+
+/* TABLE HEADER */
+
+.supplier-page thead{
+
+    background: #1f2937;
+
+    color: white;
+
+}
+
+
+.supplier-page thead th{
+
+    padding: 20px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+}
+
+
+/* TABLE BODY */
+
+.supplier-page tbody td{
+
+    padding: 22px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 17px;
+
+    word-break: break-word;
+
+}
+
+
+/* ZEBRA STRIPES */
+
+.supplier-page tbody tr:nth-child(even){
+
+    background: #f8fafc;
+
+}
+
+
+/* DELETE LINK */
+
+.supplier-page tbody td a{
+
+    color: #e11d48;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+/* ALERT BOXES */
+
+.supplier-page .success-box,
+.supplier-page .alert-box{
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto 20px auto;
+
+}
+
+/* ======================================
+   MANAGE SUPPLIER PAGE
+====================================== */
+
+.supplier-page{
+    width: 85%;
+    margin: 20px auto;
+}
+
+
+
+/* ======================================
+   TITLE
+====================================== */
+
+.supplier-page .dashboard-title{
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+
+/* ======================================
+   SUCCESS + ERROR
+====================================== */
+
+.supplier-page .success-box{
+    background: #d1fae5;
+    color: #065f46;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.supplier-page .alert-box{
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+
+/* ======================================
+   CARD DESIGN
+====================================== */
+
+.supplier-page .form-card,
+.supplier-page .table-card{
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+
+
+/* ======================================
+   FORM
+====================================== */
+
+.supplier-page form{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.supplier-page input{
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+
+/* ======================================
+   ADD BUTTON
+====================================== */
+
+.supplier-page .add-btn{
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg,#0f766e,#14b8a6);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.supplier-page .add-btn:hover{
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+
+
+/* ======================================
+   TABLE
+====================================== */
+
+.supplier-page table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.supplier-page th{
+    background: #2d2d2d;
+    color: white;
+    padding: 18px;
+    font-size: 17px;
+}
+
+.supplier-page td{
+    padding: 22px;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+
+/* ======================================
+   TABLE HOVER
+====================================== */
+
+.supplier-page tbody tr{
+    transition: 0.3s;
+}
+
+.supplier-page tbody tr:hover{
+    background: #f8fafc;
+}
+
+
+
+/* ======================================
+   DELETE BUTTON
+====================================== */
+
+.supplier-page .delete-btn{
+    color: #ef4444;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.supplier-page .delete-btn:hover{
+    color: darkred;
+}
+
+
+
+/* ======================================
+   BACK BUTTON
+====================================== */
+
+.supplier-page .back-btn{
+    margin-top: 20px;
+}
+
+.supplier-page .back-btn a{
+    text-decoration: none;
+    background: #2d2d2d;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.supplier-page .back-btn a:hover{
+    background: #111827;
+}
